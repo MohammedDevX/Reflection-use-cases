@@ -33,6 +33,7 @@ namespace Main_system.Use_cases.Dependency_Injection_system
                 var argumentType = item.ParameterType;
                 argsArray.Add(Resolve(argumentType));
             }
+
             return constructor?.Invoke(argsArray.ToArray());
         }
     }

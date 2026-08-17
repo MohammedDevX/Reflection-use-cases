@@ -41,6 +41,7 @@
 
 // DI test : 
 
+using Main_system.Use_cases.CustomAttributes;
 using Main_system.Use_cases.Dependency_Injection_system;
 using Main_system.Use_cases.Dependency_Injection_system.EmailService;
 using Main_system.Use_cases.Dependency_Injection_system.User;
@@ -54,3 +55,12 @@ container.AddTransiant<IEmail, Email>();
 var user = container.Resolve<IUser>();
 
 user.CreateUser();
+
+
+
+
+// CustomAttributes test : 
+
+Runner runner = new();
+UserCommands userCommand = new();
+runner.ExecuteCommand(userCommand, "Create");

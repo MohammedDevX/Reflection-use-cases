@@ -16,15 +16,13 @@
         }
 
 
-        public static Type Map<T>(object source) where T : new()
+        public static T Map<T>(object source) where T : new()
         {
-            var temp = typeof(T);
-
             T ob = new();
 
             foreach (var item in source.GetType().GetProperties())
             {
-                var destininationPropety = temp.GetType().GetProperty(item.Name);
+                var destininationPropety = ob.GetType().GetProperty(item.Name);
                 if (destininationPropety != null)
                 {
                     var value = item.GetValue(source);
@@ -32,7 +30,7 @@
                 }
             }
 
-            return temp;
+            return ob;
         }
 
         public static void ToString(object obj)
